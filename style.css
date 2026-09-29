@@ -1,0 +1,1297 @@
+/* ==========================================================================
+   1. COLOR INTERFACES & GLOBAL PAGE BASE
+   ========================================================================== */
+:root {
+    --bg-dark: #03080f;         
+    --bg-card: rgba(6, 12, 24, 0.65); 
+    --text-primary: #f8fafc;    
+    --text-muted: #8fa1b6;      
+    --neon-cyan: #00f0ff;       
+    --neon-magenta: #ff007f;    
+    --neon-blue: #0072ff;
+    --border-glow-cyan: 1.5px solid rgba(0, 240, 255, 0.4);
+    --border-glow-magenta: 1.5px solid rgba(255, 0, 127, 0.4);
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background gradient color */
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(circle at 50% 15%, #0c0a00 0%, transparent 60%),
+        radial-gradient(circle at 10% 80%,#ffaa1d 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, #43c6ac 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease-in-out;
+}
+
+/* Grid Background Layer */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(600px) rotateX(65deg) translateY(-25%);
+    transform-origin: top;
+    z-index: -2;
+    animation: gridScroll 35s linear infinite;
+}
+
+@keyframes gridScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 1000px; }
+}
+
+body.page-visible {
+    opacity: 1;
+}
+
+/* Cyber Preloader Overlay */
+#cyber-preloader {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    z-index: 9999;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
+}
+
+#cyber-preloader .loading-text {
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.35);
+}
+
+body.page-visible #cyber-preloader {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   2. NAVBAR SYSTEM & STATUS DASHBOARD
+   ========================================================================== */
+.main-header {
+    background: rgba(3, 8, 15, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1.5px solid rgba(0, 114, 255, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: 80px;
+}
+
+.nav-links {
+    grid-column: 2;
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link-item {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link-item:hover, .nav-link-item.active {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+.micro-status-dashboard {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ==========================================================================
+   3. HERO AREA & CLASSIC NEON ELECTRICAL HEADER
+   ========================================================================== */
+.hero-section {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+/* Contact page hero adjustments */
+.contact-hero {
+    text-align: center;
+    padding: 48px 0 24px;
+}
+.contact-hero .neon-title {
+    margin: 0 auto 8px;
+    display: block;
+}
+.contact-hero .status-transmission-label {
+    margin-top: 8px;
+}
+
+.status-transmission-label {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: var(--neon-cyan);
+    letter-spacing: 4px;
+    margin-top: 10px;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Neon Glow & Flicker Animation */
+.neon-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #ff003c,
+        0 0 40px #ff003c,
+        0 0 80px #ff003c;
+    animation: neon-electrical-flicker 3.5s infinite alternate;
+}
+
+@keyframes neon-electrical-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #ff003c,
+            0 0 40px #ff003c,
+            0 0 75px #ff003c;
+        opacity: 1;
+    }
+    20%, 24%, 55% {        
+        text-shadow: none;
+        opacity: 0.4;
+    }
+}
+
+/* ==========================================================================
+   4. HOME PAGE TERMINAL LAYOUT & TYPEWRITER STYLES
+   ========================================================================== */
+.hero-grid {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.terminal-card {
+    background: var(--bg-card);
+    border: 1.5px solid rgba(0, 240, 255, 0.25);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: rgba(6, 12, 24, 0.9);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+    padding: 12px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.term-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.term-btn.red { background-color: #ff5f56; }
+.term-btn.yellow { background-color: #ffbd2e; }
+.term-btn.green { background-color: #27c93f; }
+
+.terminal-title {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.terminal-body {
+    padding: 30px;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+}
+
+.terminal-cursor {
+    display: inline-block;
+    color: var(--neon-cyan);
+    font-weight: bold;
+    animation: cursor-blink 1s step-end infinite;
+}
+
+.terminal-cursor.idle {
+    animation: cursor-blink-slow 1.5s step-end infinite;
+}
+
+@keyframes cursor-blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes cursor-blink-slow {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   5. PROJECTS PAGE GALLERY LAYOUT
+   ========================================================================== */
+.summary-card {
+    background: var(--bg-card);
+    border: var(--border-glow-cyan);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.nested-project-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.mini-project-box {
+    background: rgba(3, 8, 15, 0.6);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.mini-project-box:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.mini-project-box h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.mini-project-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Project Thumbnail Hover Effect */
+.project-thumb {
+    width: 100%;
+    height: 0;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    margin-bottom: 0;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.1);
+    opacity: 0;
+    overflow: hidden;
+    transition: height 0.3s ease, opacity 0.3s ease, margin-bottom 0.3s ease;
+    pointer-events: none;
+}
+
+.mini-project-box:hover .project-thumb {
+    height: 160px;
+    opacity: 1;
+    margin-bottom: 14px;
+}
+
+.mini-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.mini-tag {
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    color: var(--neon-cyan);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mini-repo-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   6. THREE-PODIUM ARCHITECTURE GRID & HOLOGRAM BASE (ABOUT & CONTACT)
+   ========================================================================== */
+.bottom-showcase-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 280px;
+    gap: 40px;
+    align-items: start;
+    margin-top: 40px;
+    padding-bottom: 80px;
+}
+
+/* Hologram Podium Structures */
+.hologram-podium-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 20px;
+}
+
+.podium-project-screen {
+    background: rgba(6, 12, 24, 0.7);
+    border: 1px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
+    border-radius: 8px;
+    width: 200px;
+    padding: 16px;
+    transform: perspective(500px) rotateY(12deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.right-podium .podium-project-screen {
+    transform: perspective(500px) rotateY(-12deg);
+}
+
+.podium-project-screen:hover {
+    transform: perspective(500px) rotateY(0deg) scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.45);
+}
+
+.podium-screen-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.podium-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+}
+
+.podium-label {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+}
+
+.podium-stats-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 12px;
+    border-top: 1px dashed rgba(0, 240, 255, 0.3);
+    padding-top: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: var(--neon-cyan);
+}
+
+/* Hologram Beam projection */
+.hologram-beam {
+    width: 150px;
+    height: 120px;
+    background: linear-gradient(to top, rgba(0, 240, 255, 0.2) 0%, rgba(0, 240, 255, 0) 100%);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.right-podium .hologram-beam {
+    background: linear-gradient(to top, rgba(255, 0, 127, 0.2) 0%, rgba(255, 0, 127, 0) 100%);
+}
+
+.podium-base {
+    width: 150px;
+    height: 35px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg);
+    margin-top: -15px;
+}
+
+.podium-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.ring-1 {
+    width: 130px; height: 130px;
+    border: 3px solid var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.8), inset 0 0 15px rgba(0, 240, 255, 0.8);
+}
+
+.right-podium .ring-1 {
+    border-color: var(--neon-magenta);
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.8), inset 0 0 15px rgba(255, 0, 127, 0.8);
+}
+
+.ring-2 {
+    width: 90px; height: 90px;
+    border: 1px dashed var(--neon-cyan);
+    opacity: 0.6;
+}
+
+.right-podium .ring-2 {
+    border-color: var(--neon-magenta);
+}
+
+/* ==========================================================================
+   7. DOSSIER (ABOUT) & SECURE TRANSMISSION PORTAL (CONTACT)
+   ========================================================================== */
+.profile-dossier-wrapper, .transmission-portal-wrapper {
+    background: var(--bg-card);
+    border: var(--border-glow-cyan);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+}
+
+.portal-header-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    border-bottom: 1.5px solid rgba(0, 240, 255, 0.2);
+    padding-bottom: 12px;
+}
+
+/* About Dossier Layouts */
+.dossier-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.subsection-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.about-card-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.dossier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.dossier-box {
+    background: rgba(3, 8, 15, 0.5);
+    border: 1px solid rgba(0, 114, 255, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.dossier-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-pill {
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    color: var(--text-primary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+    background: rgba(0, 240, 255, 0.15);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Secure Contact Portal Form Elements */
+.secure-transmission-portal {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.portal-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.portal-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.portal-group label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    letter-spacing: 1.5px;
+}
+
+.portal-group input, .portal-group textarea {
+    background: rgba(3, 8, 15, 0.6);
+    border: 1px solid rgba(0, 240, 255, 0.25);
+    border-radius: 6px;
+    padding: 14px 18px;
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.portal-group input:focus, .portal-group textarea:focus {
+    outline: none;
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.portal-submit-btn {
+    background: var(--neon-cyan);
+    border: none;
+    border-radius: 6px;
+    color: var(--bg-dark);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    padding: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.portal-submit-btn:hover {
+    background: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Diagnostic Terminals */
+.console-status-diagnostics {
+    border-top: 1px dashed rgba(0, 240, 255, 0.2);
+    margin-top: 25px;
+    padding-top: 15px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.console-status-diagnostics p {
+    margin-bottom: 4px;
+}
+
+.status-glow {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   8. SYSTEM RE-ACTOR ENGINE MATRIX OVERRIDES
+   ========================================================================== */
+.system-palette-trigger {
+    background: rgba(6, 12, 24, 0.5);
+    border: 1px solid rgba(0, 240, 255, 0.25);
+    border-radius: 20px;
+    padding: 4px 12px;
+    transition: all 0.3s ease;
+}
+
+.system-palette-trigger:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+#coreStatusLabel {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+#coreStatusLabel.status-cyan {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+#coreStatusLabel.status-red {
+    color: #ff3b30;
+    text-shadow: 0 0 8px rgba(255, 59, 48, 0.5);
+}
+
+.rotating-reactor {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    color: var(--neon-cyan);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: reactor-spin 12s linear infinite;
+    transition: color 0.3s ease;
+}
+
+.reactor-halo {
+    position: absolute;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    border: 1px dashed var(--neon-cyan);
+    opacity: 0.5;
+    transition: border-color 0.3s ease;
+}
+
+@keyframes reactor-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes reactor-spin-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+/* RED VOLTAGE THEME CONTEXT SYSTEM OVERRIDES */
+body.red-voltage-core {
+    --neon-cyan: #ff3b30;
+    --neon-magenta: #e0245e;
+    --border-glow-cyan: 1.5px solid rgba(255, 59, 48, 0.4);
+}
+
+body.red-voltage-core .rotating-reactor {
+    color: #ff3b30;
+    animation: reactor-spin-reverse 4s linear infinite;
+}
+
+body.red-voltage-core .reactor-halo {
+    border-color: #ff3b30;
+}
+
+body.red-voltage-core .system-palette-trigger {
+    border-color: rgba(255, 59, 48, 0.35);
+}
+
+body.red-voltage-core .system-palette-trigger:hover {
+    border-color: #ff3b30;
+    box-shadow: 0 0 10px rgba(255, 59, 48, 0.25);
+}
+
+/* ==========================================================================
+   9. MAIN FOOTER SYSTEM
+   ========================================================================== */
+.main-footer {
+    border-top: 1.5px solid rgba(0, 114, 255, 0.15);
+    background: rgba(3, 8, 15, 0.95);
+    padding: 30px 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright-text {
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.social-links a {
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    margin-left: 24px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* ==========================================================================
+   10. RESPONSIVE ARCHITECTURE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .bottom-showcase-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .bottom-showcase-layout > div:nth-child(2) {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        position: sticky;
+        top: 0;
+    }
+
+    .navbar {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 18px 0;
+        gap: 12px 16px;
+    }
+
+    .navbar > div:first-child {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+    }
+
+    .nav-link-item {
+        font-size: 0.72rem;
+        letter-spacing: 0.12rem;
+    }
+
+    .micro-status-dashboard {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        align-self: center;
+    }
+
+    .system-palette-trigger {
+        width: 100%;
+        max-width: 360px;
+        justify-content: center;
+        padding: 8px 10px !important;
+    }
+
+    #coreStatusLabel {
+        font-size: 0.68rem;
+        white-space: normal;
+    }
+
+    .neon-title {
+        font-size: 2.2rem;
+    }
+    
+    .nested-project-row {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-showcase-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: none !important;
+        gap: 20px !important;
+    }
+
+    .bottom-showcase-layout > div:nth-child(2) {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .hologram-podium-container {
+        display: none !important;
+    }
+
+    .mini-project-box {
+        padding: 20px;
+    }
+    
+    .dossier-grid, .portal-form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-dossier-wrapper, .transmission-portal-wrapper {
+        padding: 25px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .social-links a {
+        margin: 0 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: 92%;
+    }
+
+    .navbar {
+        padding: 14px 0;
+        gap: 10px 12px;
+    }
+
+    .nav-links {
+        gap: 8px 12px;
+    }
+
+    .nav-link-item {
+        font-size: 0.64rem;
+        letter-spacing: 0.08rem;
+    }
+
+    .system-palette-trigger {
+        max-width: 100%;
+    }
+
+    #coreStatusLabel {
+        font-size: 0.6rem;
+        letter-spacing: 0.04rem;
+    }
+}
+
+/* Fix individual project boxes layout */
+.mini-project-box {
+    background: rgba(4, 9, 20, 0.85);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-project-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+/* Ensure github repo buttons look pristine and span full width */
+.mini-repo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--neon-cyan);
+    border: 1px solid var(--neon-cyan);
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: auto; /* Pushes the button to the bottom of card */
+}
+
+.mini-repo-btn:hover {
+    background: rgba(0, 240, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+/* Stronger glow for repository buttons and links */
+.mini-repo-btn {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+/* Make repo buttons match the submit button hover behavior */
+.mini-repo-btn:hover,
+.mini-repo-btn.force-hover {
+    background: #ffffff !important;
+    color: var(--bg-dark) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 30px rgba(0,0,0,0.35), 0 0 30px var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Make in-card repository links glow on hover as well */
+.mini-project-box a {
+    transition: color 0.2s ease, text-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    padding: 10px 14px;
+    border-radius: 6px;
+    display: inline-block;
+    background: transparent;
+}
+/* Make in-card repository links behave like the submit button on hover */
+.mini-project-box a:hover,
+.mini-project-box a.force-hover {
+    background: #ffffff !important;
+    color: var(--bg-dark) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25), 0 0 20px var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* Red mode overrides */
+body.red-voltage-core .mini-project-box:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(255, 59, 48, 0.2);
+}
+
+body.red-voltage-core .mini-repo-btn {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+/* --- Hologram Podium Styles --- */
+.hover-scan-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hologram-image-popup {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 280px;
+    background: rgba(4, 9, 20, 0.95);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+    padding: 8px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.hover-scan-wrapper:hover .hologram-image-popup {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* CRT Scanline Overlay */
+.crt-overlay {
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 240, 255, 0.15) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    border-radius: 6px;
+}
+
+/* Default hyperlink style */
+a {
+    color: var(--neon-cyan); /* Cyan color */
+    text-decoration: none;   /* Removes the default underline */
+    transition: color 0.3s ease;
+}
+
+/* Hover state (what happens when you mouse over the link) */
+a:hover {
+    color: #ffffff; /* Turns white when hovered */
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.text-link {
+    color: var(--neon-magenta); /* Magenta for inline links */
+    text-decoration: underline;
+}
+
+.text-link:hover {
+    color: #ffffff;
+}
+
+/* Transmission Portal Styles */
+.transmission-portal-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px; /* Adjust this to match your form's height */
+}
+
+/* Attachment hover effect */
+.file-drop-zone {
+    border: 2px dashed var(--neon-cyan);
+    padding: 18px 22px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgba(0, 240, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-start;
+    border-radius: 8px;
+    min-height: 110px;
+}
+
+.file-drop-zone:hover {
+    background: rgba(0, 240, 255, 0.15);
+    border-style: solid;
+}
+#uploadProgress {
+    height: 5px;
+    background: var(--neon-cyan);
+    width: 0%;
+    transition: width 0.3s;
+    margin-top: 10px;
+}
+
+.file-drop-zone i {
+    font-size: 1.1rem;
+    color: var(--neon-cyan);
+}
+
+.file-drop-zone label {
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+}
+
+.file-drop-zone.drag-over {
+    background: rgba(0, 240, 255, 0.12);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.12);
+}
+
+#fileName {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--neon-magenta);
+}
+
+/* Progress bar inside drop zone */
+.progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 60%;
+    justify-content: flex-end;
+}
+
+/* File drop zone layout */
+.file-drop-zone { justify-content: space-between; }
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.12);
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-cyan), rgba(0,240,255,0.6));
+    width: 0%;
+    transition: width 0.15s linear;
+}
+
+#uploadPercent {
+    font-family: 'Fira Code', monospace;
+    color: var(--neon-cyan);
+    font-weight: 700;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* Larger drop zone for better hover targets */
+.file-drop-zone {
+    width: 100%;
+    min-height: 110px;
+}
+
+.file-drop-zone label { margin-left: 8px; }
+
+/* Success screen styles */
+.success-screen {
+    max-width: 640px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+/* Return button styling */
+.success-return {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: var(--neon-cyan);
+    color: var(--bg-dark);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.success-return:hover {
+    background: #ffffff;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    color: var(--bg-dark);
+}
+
+/* Ensure red-theme hover still shows white background */
+body.red-voltage-core .success-return:hover {
+    background: #ffffff;
+    color: var(--bg-dark);
+}
+
+/* Generic action note popup */
+.action-note {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    max-width: 320px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    background: rgba(4, 9, 20, 0.98);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 240, 255, 0.35);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.18);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.action-note.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Uploaded file list styling */
+.attached-item { color: var(--neon-magenta); font-family: 'Fira Code', monospace; }
+.uploaded-item { color: var(--neon-cyan); font-family: 'Fira Code', monospace; display:flex; align-items:center; gap:8px; }
+.uploaded-check { display:inline-block; background: rgba(0,240,255,0.12); border-radius:4px; padding:2px 6px; color: var(--neon-cyan); font-weight:800; }
+.uploaded-item .uploaded-check { box-shadow: 0 0 6px rgba(0,240,255,0.18); }
+
+/* Ensure return button text is readable in red theme */
+body.red-voltage-core .success-return {
+    color: var(--bg-dark);
+}
