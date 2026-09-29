@@ -1,6 +1,6 @@
 # Developer Profile
 
-> A sleek, responsive, and modern personal developer profile built with clean HTML, CSS, and JavaScript. Showcases skills, projects, and contact information in a professional layout.
+> A hologram like and modern personal developer profile built using HTML, CSS, and JavaScript. This is to showcases skills, projects, and contact me in a professional layout.
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 Features
+## Features
 
 - **Responsive Design:** Optimized to look great on desktop, tablet, and mobile devices.
 - **Interactive Elements:** Smooth navigation, dynamic project cards, or interactive contact links.
@@ -17,7 +17,7 @@
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ├── index.html        # Main HTML structure and content
@@ -46,22 +46,22 @@
   
 - **[Clinic Database System](https://github.com/FadingPandaa/Clinic-Database-System-CDS-)** — relational database system for clinical administration, built with MySQL/SSMS.
   
-- **CyberBot** — a C# automation built in Visual Studio 2022 to help people them know what cybersecurity is at a basic level.
+- **[CyberBot](https://github.com/FadingPandaa/CyberBot-Application)** — a C# automation built in Visual Studio 2022 to help people them know what cybersecurity is at a basic level.
   
 - **[PASTIMES](https://github.com/FadingPandaa/PASTIMES)** — a e-Commerce platform to buy, and sell clothes, built with PHP, MariaDB, and HTML/CSS. (Collaboration with [@Amo](https://github.com/Amogelang-Dev))
 ---
 
-## ▶️ Live Link
+## Live Link
 
 View the website from this URL: https://fadingpandaa.github.io/Dev-Profile/
 
 ---
-## 🧑🏾‍💻Author
+## Author
 
 Created and edited by Keabetswe Masole (FadingPandaa)
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
