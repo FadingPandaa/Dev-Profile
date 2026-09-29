@@ -21,25 +21,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle form submission with simulated upload.
     if (contactForm && successMessage) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             markActionTriggered(submitBtn);
-            
-            // If an upload is in progress, wait for it to finish before showing success.
-            if (uploadTimer) {
-                if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'WAITING...'; }
-                const waitInterval = setInterval(() => {
-                    if (!uploadTimer) {
-                        clearInterval(waitInterval);
-                        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'SUBMIT'; }
-                        contactForm.style.display = 'none';
-                        successMessage.style.display = 'block'; // do not redirect to avoid duplicate success content.  
-                    }
-                }, 200);
-            } else {
-                contactForm.style.display = 'none';
-                successMessage.style.display = 'block'; // do not redirect to avoid duplicate success content.
+
+            try {
+                // Attempt the real submission first so a failed request redirects to the error page.
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Submission failed');
+                }
+
+                // If an upload is in progress, wait for it to finish before showing success.
+                if (uploadTimer) {
+                    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'WAITING...'; }
+                    const waitInterval = setInterval(() => {
+                        if (!uploadTimer) {
+                            clearInterval(waitInterval);
+                            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'SUBMIT'; }
+                            contactForm.style.display = 'none';
+                            successMessage.style.display = 'block';
+                        }
+                    }, 200);
+                } else {
+                    contactForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                }
+            } catch (error) {
+                window.location.href = 'error.html';
             }
         });
     }
@@ -159,6 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 uploadTimer = null;
                 uploadCompleted = true;
                 if (uploadPercentEl) uploadPercentEl.textContent = '100%';
+                
                 // mark files as uploaded (add checkmark + label)
                 try {
                     if (list && list.length && fileName) {
@@ -166,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             '<span class="uploaded-check">&#10003;</span> UPLOADED: ' + f.name + '</div>').join('');
                     }
                 } catch (e) {}
+                
                 // keep the completed state visible briefly, then reset progress UI but preserve files
                 setTimeout(() => {
                     try { resetUploadUI(true); } catch (e) {}
@@ -189,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 coreStatusLabel.classList.add('status-red');
             }
         } else {
+            
             // Reset to the default cyan state.
             body.classList.remove('red-voltage-core');
             if (coreStatusLabel) {
@@ -270,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
             applyCoreState(isNowRed);
             try { localStorage.setItem('core_red', isNowRed ? '1' : '0'); } catch (e) {}
         });
+        
         // keyboard accessibility
         voltageTrigger.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); voltageTrigger.click(); }
