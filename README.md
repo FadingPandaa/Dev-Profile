@@ -30,7 +30,7 @@
 
 ## ▶️ Live Link
 
-View the website from this URL: 
+View the website from this URL: https://fadingpandaa.github.io/Dev-Profile/
 
 ---
 
