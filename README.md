@@ -27,7 +27,7 @@
 ```
 ## Pages
 
-- **Home** — hero introduction with typewriter animation and featured projects. Hover above the [USER_PROG] to view image.
+- **Home** — hero introduction with typewriter animation and featured projects. Hover above the [USER_PROG] to view image. Tap/Hover above the USER_PROG to view image.
    <img width="952" height="506" alt="Homepage" src="https://github.com/user-attachments/assets/d78f4ed4-febc-4c64-a2ef-66d87c685c4b" />
 
 - **About** — Breif intro of myself, skills, languages/frameworks, tools/IDEs, and personal intrests.
