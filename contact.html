@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Keabetswe Masole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Orbitron:wght@700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="cyber-preloader" aria-hidden="true">
+    <div class="loading-text">Initializing Systems...</div>
+</div>
+
+<header class="main-header">
+    <div class="container">
+        <nav class="navbar">
+            <div style="grid-column: 1;">
+                <a href="index.html" style="text-decoration: none;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--text-primary); letter-spacing: 2px;">K_MASOLE.SYS</span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link-item">Home</a>
+                <a href="about.html" class="nav-link-item">About</a>
+                <a href="projects.html" class="nav-link-item">Projects</a>
+                <a href="contact.html" class="nav-link-item active">Contact</a>
+            </div>
+
+            <div class="micro-status-dashboard">
+                <button class="system-palette-trigger" id="voltageTrigger" style="background: none; border: 1px solid rgba(0,240,255,0.3); padding: 6px 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 4px;">
+                    <span id="coreStatusLabel" class="status-cyan" style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.8rem;">CORE_STATE: CYAN_NOMINAL</span>
+                    <div class="rotating-reactor">
+                        <i class="fa-solid fa-atom"></i>
+                        <div class="reactor-halo"></div>
+                    </div>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="content-wrapper">
+    <div class="container">
+        <div class="contact-page">
+            <section class="contact-hero">
+                <h1 class="neon-title">GET IN TOUCH</h1>
+                <p class="status-transmission-label">SYSTEM STATUS: TRANSMISSION</p>
+            </section>
+
+            <div class="bottom-showcase-layout">
+                <div class="hologram-podium-container left-podium">
+                    <div class="podium-project-screen">
+                        <div class="podium-screen-inner">
+                            <i class="fa-solid fa-link podium-icon" style="font-size:36px;color:var(--neon-cyan);"></i>
+                            <span class="podium-label">LINK_SYS</span>
+                            <div class="podium-stats-bar"><span>PORT: 443</span><span>SECURE</span></div>
+                        </div>
+                    </div>
+                    <div class="hologram-beam"></div>
+                    <div class="podium-base"><div class="podium-ring ring-1"></div><div class="podium-ring ring-2"></div></div>
+                </div>
+
+                <!-- Form begins here. -->
+                <div class="transmission-portal-wrapper profile-dossier-wrapper">
+                    <h2 class="portal-header-title">SECURE TRANSMISSION PORTAL</h2>
+ 
+                    <form id="contactForm" class="secure-transmission-portal" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="access_key" value="0402e44b-b91f-487e-8ee2-66200a13e672">
+                        <input type="hidden" name="redirect" value="">
+
+                        
+                        <div class="portal-form-row">
+                            <div class="portal-group">
+                                <label for="name">YOUR NAME AND SURNAME</label>
+                                <input id="name" name="name" type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="portal-group">
+                                <label for="email">EMAIL ADDRESS</label>
+                                <input id="email" name="email" type="email" placeholder="Email Address" required>
+                            </div>
+                        </div>
+
+                        <div class="portal-group">
+                            <label for="message">WHAT DO YOU WANT TO SAY?</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Message" required></textarea>
+                        </div>
+
+                        <div class="file-drop-zone" id="dropZone">
+                            <input type="file" name="attachment" id="fileUpload" hidden multiple>
+                            <label for="fileUpload" id="dropLabel"><i class="fa-solid fa-cloud-arrow-up"></i> Drag and Drop file here OR Click to Upload <br> <b>⚠️OUT OF ORDER...⚠️</b>
+                            <div class="progress-wrap" aria-hidden="true">
+                                <div class="progress-track">
+                                    <div id="uploadProgress" class="progress-bar" style="width:0%;"></div>
+                                </div>
+                                <span id="uploadPercent">0%</span>
+                            </div>
+                        </div>
+                        <div id="fileName" style="margin-top: 10px; color: var(--neon-magenta); min-height:20px;"></div>
+
+                        <button type="submit" class="portal-submit-btn">SUBMIT</button>
+
+                        <div class="console-status-diagnostics" style="margin-top:18px;">
+                            <p>[SYS] establishing link...</p>
+                            <p>[DATA] ready for transmission...</p>
+                            <p class="status-glow">[STATUS] online</p>
+                        </div>
+                    </form>
+
+                    <div id="successMessage" class="success-screen" style="display:none; padding:40px;">
+                        <h2 style="color:var(--neon-cyan); font-family: 'Orbitron', sans-serif; text-align:center;">TRANSMISSION COMPLETE</h2>
+                        <p style="color:var(--text-muted); margin-top:10px; text-align:center;">Your mail has been successfully sent.</p>
+                        <div style="text-align:center; margin-top:18px;">
+                            <a href="index.html" class="mini-repo-btn success-return">RETURN TO MAIN STATION</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hologram-podium-container right-podium">
+                    <div class="podium-project-screen">
+                        <div class="podium-screen-inner">
+                            <i class="fa-solid fa-key podium-icon" style="font-size:36px;color:var(--neon-magenta);"></i>
+                            <span class="podium-label">SSL_CERT</span>
+                            <div class="podium-stats-bar"><span>EST: 2026</span><span>ACTIVE</span></div>
+                        </div>
+                    </div>
+                    <div class="hologram-beam"></div>
+                    <div class="podium-base"><div class="podium-ring ring-1"></div><div class="podium-ring ring-2"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <p class="copyright-text">&copy; <span id="year"></span> Keabetswe Masole. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/FadingPandaa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/keabetswe-masole" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('cyber-preloader');
+        setTimeout(function() {
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }
+            document.body.classList.add('page-visible');
+        }, 800);
+    }, { once: true });
+
+    const yearNode = document.getElementById('year');
+    if (yearNode) {
+        yearNode.textContent = new Date().getFullYear();
+    }
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

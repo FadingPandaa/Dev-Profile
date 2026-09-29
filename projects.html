@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Keabetswe Masole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Orbitron:wght@700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="cyber-preloader" aria-hidden="true">
+    <div class="loading-text">Initializing Systems...</div>
+</div>
+
+<header class="main-header">
+    <div class="container">
+        <nav class="navbar">
+            <div style="grid-column: 1;">
+                <a href="index.html" style="text-decoration: none;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--text-primary); letter-spacing: 2px;">K_MASOLE.SYS</span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link-item">Home</a>
+                <a href="about.html" class="nav-link-item">About</a>
+                <a href="projects.html" class="nav-link-item active">Projects</a>
+                <a href="contact.html" class="nav-link-item">Contact</a>
+            </div>
+
+            <div class="micro-status-dashboard">
+                <button class="system-palette-trigger" id="voltageTrigger" style="background: none; border: 1px solid rgba(0,240,255,0.3); padding: 6px 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 4px;">
+                    <span id="coreStatusLabel" class="status-cyan" style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.8rem;">CORE_STATE: CYAN_NOMINAL</span>
+                    <div class="rotating-reactor">
+                        <i class="fa-solid fa-atom"></i>
+                        <div class="reactor-halo"></div>
+                    </div>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="content-wrapper">
+    <div class="container">
+        <div class="about-page" style="padding-bottom: 50px;">
+            <div class="hero-section">
+                <h1 class="neon-title" style="text-shadow: 0 0 15px var(--neon-cyan);">PROJECTS</h1>
+                <p class="status-transmission-label">SYSTEM ARCHITECTURE // REPOS: COMPLETE</p>
+            </div>
+
+            <div class="summary-card cyan-theme-card" style="margin-top: 3rem; padding: 2.5rem 2rem; background: var(--bg-card); border: var(--border-glow-cyan); border-radius: 8px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);">
+                <div class="nested-project-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="mini-project-box" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 250px;">
+                        <div>
+                            <img src="assets/PennyWise.jpeg" alt="PennyWise project preview" class="project-thumb">
+                            <h3 style="font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); font-size: 1.3rem; margin-bottom: 0.75rem;"><i class="fa-solid fa-wallet"></i> PennyWise</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;">A smart, intuitive personal finance budgeting application built to simplify expense tracking and optimize structural asset allocation splits.</p>
+
+                            <div class="mini-tags" style="margin-bottom: 1.5rem;">
+                                <span class="mini-tag"><i class="fa-brands fa-android"></i> Android Studio</span>
+                                <span class="mini-tag">Kotlin</span>
+                                <span class="mini-tag">Java</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/FadingPandaa/PennyWise-Budgeting-App" target="_blank" class="mini-repo-btn">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                    </div>
+
+                    <div class="mini-project-box" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 250px;">
+                        <div>
+                            <img src="assets/Clinic Database System.png" alt="CDS project preview" class="project-thumb">
+                            <h3 style="font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); font-size: 1.3rem; margin-bottom: 0.75rem;"><i class="fa-solid fa-file-medical"></i> Clinic Database System</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;">A high-integrity relational clinical administration system engineered to securely manage medical profiles and transaction integrity logs.</p>
+
+                            <div class="mini-tags" style="margin-bottom: 1.5rem;">
+                                <span class="mini-tag"><i class="fa-solid fa-database"></i> MySQL</span>
+                                <span class="mini-tag">SSMS</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/FadingPandaa/Clinic-Database-System-CDS-" target="_blank" class="mini-repo-btn">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                    </div>
+
+                    <div class="mini-project-box" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 250px;">
+                        <div>
+                            <img src="assets/CyberBot App.jpg" alt="CyberBot project preview" class="project-thumb">
+                            <h3 style="font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); font-size: 1.3rem; margin-bottom: 0.75rem;"><i class="fa-solid fa-robot"></i> CyberBot</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;">An automation bot application compiled to help you understand the basics of cybersecurity and the importance of being vigilant online.</p>
+
+                            <div class="mini-tags" style="margin-bottom: 1.5rem;">
+                                <span class="mini-tag"><i class="fa-solid fa-code"></i> C#</span>
+                                <span class="mini-tag">Visual Studio 2022</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/FadingPandaa/CyberBot-Application" target="_blank" class="mini-repo-btn">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                    </div>
+
+                    <div class="mini-project-box" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 250px;">
+                        <div>
+                            <img src="assets/PASTIMES.png" alt="PASTIMES project preview" class="project-thumb">
+                            <h3 style="font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); font-size: 1.3rem; margin-bottom: 0.75rem;"><i class="fa-solid fa-bag-shopping"></i> PASTIMES</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem;">A e-commerce platform for managing and promoting local business listings and customer interactions.</p>
+
+                            <div class="mini-tags" style="margin-bottom: 1.5rem;">
+                                <span class="mini-tag"><i class="fa-brands fa-php"></i> PHP</span>
+                                <span class="mini-tag"><i class="fa-solid fa-database"></i> MariaDB/MySQL</span>
+                                <span class="mini-tag"><i class="fa-brands fa-html5"></i> HTML/CSS</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/FadingPandaa/PASTIMES" target="_blank" class="mini-repo-btn">
+                            <i class="fa-brands fa-github"></i> View Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <p class="copyright-text">&copy; <span id="year"></span> Keabetswe Masole. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/FadingPandaa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/keabetswe-masole" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('cyber-preloader');
+        setTimeout(function() {
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }
+            document.body.classList.add('page-visible');
+        }, 800);
+    }, { once: true });
+
+    const yearNode = document.getElementById('year');
+    if (yearNode) {
+        yearNode.textContent = new Date().getFullYear();
+    }
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

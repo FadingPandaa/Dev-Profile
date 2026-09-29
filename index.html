@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keabetswe Masole | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Orbitron:wght@700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="cyber-preloader" aria-hidden="true">
+    <div class="loading-text">Initializing Systems...</div>
+</div>
+
+<header class="main-header">
+    <div class="container">
+        <nav class="navbar">
+            <div style="grid-column: 1;">
+                <a href="index.html" style="text-decoration: none;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--text-primary); letter-spacing: 2px;">K_MASOLE.SYS</span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link-item active">Home</a>
+                <a href="about.html" class="nav-link-item">About</a>
+                <a href="projects.html" class="nav-link-item">Projects</a>
+                <a href="contact.html" class="nav-link-item">Contact</a>
+            </div>
+
+            <div class="micro-status-dashboard">
+                <button class="system-palette-trigger" id="voltageTrigger" style="background: none; border: 1px solid rgba(0,240,255,0.3); padding: 6px 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 4px;">
+                    <span id="coreStatusLabel" class="status-cyan" style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.8rem;">CORE_STATE: CYAN_NOMINAL</span>
+                    <div class="rotating-reactor">
+                        <i class="fa-solid fa-atom"></i>
+                        <div class="reactor-halo"></div>
+                    </div>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="content-wrapper">
+    <div class="container">
+        <div style="margin-top: 30px; flex: 1; width: 100%; max-width: 1400px; padding: 0 15px;">
+            <div class="hero-grid" style="display: flex; width: 100%; margin-bottom: 3rem; justify-content: center;">
+                <div class="terminal-card" style="width: 100%; max-width: 1200px; background: var(--bg-card); border: var(--border-glow-cyan); border-radius: 10px; overflow: hidden; box-shadow: 0 0 25px rgba(0, 240, 255, 0.15);">
+                    <div class="terminal-header" style="background: rgba(4, 9, 20, 0.95); border-bottom: 1px solid rgba(0, 240, 255, 0.15); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="terminal-buttons" style="display: flex; gap: 8px;">
+                            <span class="term-btn red" style="width: 12px; height: 12px; border-radius: 50%; background-color: #ff5f56; display: inline-block;"></span>
+                            <span class="term-btn yellow" style="width: 12px; height: 12px; border-radius: 50%; background-color: #ffbd2e; display: inline-block;"></span>
+                            <span class="term-btn green" style="width: 12px; height: 12px; border-radius: 50%; background-color: #27c93f; display: inline-block;"></span>
+                        </div>
+                        <div class="terminal-title" style="font-family: 'Fira Code', monospace; font-size: 0.85rem; color: var(--text-muted);">system_shell.sh</div>
+                    </div>
+
+                    <div class="terminal-body" style="padding: 40px; text-align: center;">
+                        <p style="font-family: 'Fira Code', monospace; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; letter-spacing: 1px;">KEA@dev-portfolio:~$ executing greeting_render.sh...</p>
+                        <h1 id="typewriter-effect" class="neon-title" style="margin-bottom: 25px;">HI, I'M KEABETSWE MASOLE.</h1>
+                        <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.8; max-width: 900px; margin: 0 auto 2.5rem; font-family: 'Rajdhani', sans-serif;">
+                            Eager junior software developer with a focus on high-performance apps, safe database management systems, and reliable mobile and website architecture.
+                        </p>
+
+                        <div style="display: flex; gap: 20px; justify-content: center;">
+                            <a href="projects.html" class="mini-repo-btn" style="text-decoration: none;"><i class="fa-solid fa-code"></i> VIEW REPOSITORIES</a>
+                            <a href="contact.html" class="mini-repo-btn" style="text-decoration: none; border-color: var(--neon-magenta); color: var(--neon-magenta);"><i class="fa-solid fa-link"></i> CONTACT ME</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; padding-bottom: 60px;">
+                <h3 style="font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); letter-spacing: 3px; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 2rem;">FEATURED SYSTEM ARCHITECTURES</h3>
+
+                <div class="bottom-showcase-layout" style="display: grid; grid-template-columns: 280px 1fr 280px; gap: 40px; align-items: stretch;">
+                    <div class="hologram-podium-container left-podium" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                        <div class="hover-scan-wrapper" style="position: relative; width: 100%; display: flex; flex-direction: column; align-items: center;">
+                            <style>
+                                .hover-scan-wrapper:hover .hologram-image-popup {
+                                    opacity: 1 !important;
+                                    visibility: visible !important;
+                                }
+                            </style>
+
+                            <div class="hologram-image-popup" style="position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%); width: 240px; height: 280px; background: rgba(4, 9, 20, 0.98); border: 2px solid var(--neon-cyan); border-radius: 8px; opacity: 0; visibility: hidden; transition: opacity 0.3s ease; z-index: 100; pointer-events: none; padding: 10px; box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);">
+                                <img src="assets/Me.jpeg" alt="Profile" style="width: 100%; height: 210px; object-fit: cover; border-radius: 4px;">
+                                <div style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.7rem; text-align: center; margin-top: 10px;">[IDENTITY_CONFIRMED]</div>
+                            </div>
+
+                            <div class="podium-project-screen" style="transform: perspective(500px) rotateY(12deg); background: rgba(6, 12, 24, 0.75); border: 1px solid var(--neon-cyan); padding: 20px; border-radius: 8px; width: 100%; cursor: pointer;">
+                                <div class="podium-screen-inner" style="text-align: center;">
+                                    <div class="scanner-node" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--neon-cyan); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                                        <i class="fa-solid fa-user-gear" style="font-size: 2rem; color: var(--neon-cyan);"></i>
+                                    </div>
+                                    <span class="podium-label" style="font-family: 'Orbitron'; font-size: 0.95rem;">USER_PROG</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hologram-beam"></div>
+                        <div class="podium-base">
+                            <div class="podium-ring ring-1"></div>
+                            <div class="podium-ring ring-2"></div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        <div class="mini-project-box" style="display: flex; flex-direction: column; gap: 15px; padding: 25px; background: var(--bg-card); border: 1px solid rgba(0,240,255,0.15); border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <h4 style="font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: var(--text-primary);"><i class="fa-solid fa-wallet"></i> PennyWise Budgeting App</h4>
+                                <span class="mini-tag" style="font-size: 0.7rem;"><i class="fa-brands fa-android"></i> Android Studio</span>
+                            </div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                                A smart, personal financial expense tracking application for Android, built within Android Studio using Kotlin and Java.
+                            </p>
+                            <a href="https://github.com/FadingPandaa/PennyWise-Budgeting-App" target="_blank" style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.85rem; text-decoration: none;"><i class="fa-solid fa-code-commit"></i> View Repository</a>
+                        </div>
+
+                        <div class="mini-project-box" style="display: flex; flex-direction: column; gap: 15px; padding: 25px; background: var(--bg-card); border: 1px solid rgba(0,240,255,0.15); border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <h4 style="font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: var(--text-primary);"><i class="fa-solid fa-file-medical"></i> Clinic Database System</h4>
+                                <span class="mini-tag" style="font-size: 0.7rem;"><i class="fa-solid fa-database"></i> MySQL</span>
+                            </div>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                                A high-integrity database system built using MySQL and SQL Server Management Studio (SSMS 20) to coordinate patient records at clinics.
+                            </p>
+                            <a href="https://github.com/FadingPandaa/Clinic-Database-System-CDS-" target="_blank" style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.85rem; text-decoration: none;"><i class="fa-solid fa-code-commit"></i> View Repository</a>
+                        </div>
+                    </div>
+
+                    <div class="hologram-podium-container right-podium" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                        <div class="podium-project-screen" style="transform: perspective(500px) rotateY(-12deg); background: rgba(6, 12, 24, 0.75); border: 1px solid var(--neon-magenta); padding: 20px; border-radius: 8px;">
+                            <div class="podium-screen-inner" style="text-align: center;">
+                                <div style="display: flex; flex-direction: column; gap: 4px; align-items: center; margin-bottom: 15px;">
+                                    <span style="height: 3px; width: 30px; background: var(--neon-magenta); display: block;"></span>
+                                    <span style="height: 3px; width: 30px; background: var(--neon-magenta); display: block;"></span>
+                                </div>
+                                <span class="podium-label" style="font-family: 'Orbitron', sans-serif; font-size: 0.95rem; display: block; margin-bottom: 5px; color: var(--text-primary);">SYS_CORE</span>
+                                <span style="font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--neon-magenta); letter-spacing: 1px;">READY TO LAUNCH</span>
+                            </div>
+                        </div>
+
+                        <div class="hologram-beam"></div>
+                        <div class="podium-base">
+                            <div class="podium-ring ring-1"></div>
+                            <div class="podium-ring ring-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <p class="copyright-text">&copy; <span id="year"></span> Keabetswe Masole. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/FadingPandaa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/keabetswe-masole" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('cyber-preloader');
+        setTimeout(function() {
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }
+            document.body.classList.add('page-visible');
+        }, 800);
+    }, { once: true });
+
+    const yearNode = document.getElementById('year');
+    if (yearNode) {
+        yearNode.textContent = new Date().getFullYear();
+    }
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

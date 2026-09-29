@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success | Keabetswe Masole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Orbitron:wght@700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="cyber-preloader" aria-hidden="true">
+    <div class="loading-text">Initializing Systems...</div>
+</div>
+
+<header class="main-header">
+    <div class="container">
+        <nav class="navbar">
+            <div style="grid-column: 1;">
+                <a href="index.html" style="text-decoration: none;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--text-primary); letter-spacing: 2px;">K_MASOLE.SYS</span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link-item">Home</a>
+                <a href="about.html" class="nav-link-item">About</a>
+                <a href="projects.html" class="nav-link-item">Projects</a>
+                <a href="contact.html" class="nav-link-item">Contact</a>
+            </div>
+
+            <div class="micro-status-dashboard">
+                <button class="system-palette-trigger" id="voltageTrigger" style="background: none; border: 1px solid rgba(0,240,255,0.3); padding: 6px 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 4px;">
+                    <span id="coreStatusLabel" class="status-cyan" style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.8rem;">CORE_STATE: CYAN_NOMINAL</span>
+                    <div class="rotating-reactor">
+                        <i class="fa-solid fa-atom"></i>
+                        <div class="reactor-halo"></div>
+                    </div>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="content-wrapper">
+    <div class="container">
+        <div class="success-page" style="text-align: center; padding: 100px 20px;">
+            <h1 style="color: var(--neon-cyan); font-family: 'Orbitron', sans-serif;">TRANSMISSION COMPLETE</h1>
+            <p style="color: var(--text-muted); margin-top: 20px;">Your package has been successfully received.</p>
+            <a href="index.html" class="mini-repo-btn" style="margin-top: 30px; display: inline-block;">RETURN TO MAIN STATION</a>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <p class="copyright-text">&copy; <span id="year"></span> Keabetswe Masole. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/FadingPandaa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/keabetswe-masole" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('cyber-preloader');
+        setTimeout(function() {
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }
+            document.body.classList.add('page-visible');
+        }, 800);
+    }, { once: true });
+
+    const yearNode = document.getElementById('year');
+    if (yearNode) {
+        yearNode.textContent = new Date().getFullYear();
+    }
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
