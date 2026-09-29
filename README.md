@@ -33,13 +33,9 @@
 View the website from this URL: https://fadingpandaa.github.io/Dev-Profile/
 
 ---
+## 🧑🏾‍💻Author
 
-## 💡 Customization
-
-Feel free to fork or clone this repository to build your own portfolio! 
-- Update the text and metadata in `index.html` with your personal information.
-- Adjust colors, fonts, and spacing in `style.css` to match your personal brand.
-- Link your actual GitHub, LinkedIn, and email addresses in the contact section.
+Created and edited by Keabetswe Masole (FadingPandaa)
 
 ---
 
