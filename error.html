@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Failed | Keabetswe Masole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Orbitron:wght@700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="cyber-preloader" aria-hidden="true">
+    <div class="loading-text">Initializing Systems...</div>
+</div>
+
+<header class="main-header">
+    <div class="container">
+        <nav class="navbar">
+            <div style="grid-column: 1;">
+                <a href="index.html" style="text-decoration: none;">
+                    <span style="font-family: 'Orbitron', sans-serif; font-weight: 900; color: var(--text-primary); letter-spacing: 2px;">K_MASOLE.SYS</span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link-item">Home</a>
+                <a href="about.html" class="nav-link-item">About</a>
+                <a href="projects.html" class="nav-link-item">Projects</a>
+                <a href="contact.html" class="nav-link-item">Contact</a>
+            </div>
+
+            <div class="micro-status-dashboard">
+                <button class="system-palette-trigger" id="voltageTrigger" style="background: none; border: 1px solid rgba(0,240,255,0.3); padding: 6px 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 4px;">
+                    <span id="coreStatusLabel" class="status-cyan" style="color: var(--neon-cyan); font-family: 'Fira Code', monospace; font-size: 0.8rem;">CORE_STATE: CYAN_NOMINAL</span>
+                    <div class="rotating-reactor">
+                        <i class="fa-solid fa-atom"></i>
+                        <div class="reactor-halo"></div>
+                    </div>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="content-wrapper">
+    <div class="container">
+        <div class="success-page" style="text-align: center; padding: 100px 20px; max-width: 760px; margin: 0 auto;">
+            <h1 style="color: var(--neon-magenta); font-family: 'Orbitron', sans-serif; letter-spacing: 2px;">TRANSMISSION FAILED</h1>
+            <p style="color: var(--text-muted); margin-top: 20px; line-height: 1.8; font-size: 1.05rem;">
+                Your message could not be delivered. This usually happens when the network is unstable,
+                the form is incomplete, the file is too large, or the server is temporarily unavailable.
+            </p>
+            <div style="margin-top: 28px; color: var(--text-primary); font-family: 'Fira Code', monospace; line-height: 1.9;">
+                <p>Possible reasons:</p>
+                <p>• Connection issue or temporary service outage.</p>
+                <p>• Required fields were left empty.</p>
+                <p>• Uploaded file exceeded server limits.</p>
+                <p>• Email service rejected the request.</p>
+            </div>
+            <div style="margin-top: 32px;">
+                <a href="contact.html" class="mini-repo-btn" style="display: inline-block;">TRY AGAIN</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container footer-content">
+        <p class="copyright-text">&copy; <span id="year"></span> Keabetswe Masole. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://github.com/FadingPandaa" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/keabetswe-masole" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('cyber-preloader');
+        setTimeout(function() {
+            if (preloader) {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }
+            document.body.classList.add('page-visible');
+        }, 800);
+    }, { once: true });
+
+    const yearNode = document.getElementById('year');
+    if (yearNode) {
+        yearNode.textContent = new Date().getFullYear();
+    }
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
