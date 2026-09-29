@@ -28,24 +28,9 @@
 
 ---
 
-## 🛠️ Getting Started
+## ▶️ Live Link
 
-To view or edit this project locally, follow these simple steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   ```
-
-2. **Navigate to the project directory:**
-   ```bash
-   cd your-repo-name
-   ```
-
-3. **Open the project:**
-   Double-click `index.html` or open it using your favorite code editor (like [VS Code](https://code.visualstudio.com/)). 
-   
-   *Tip: Use the **Live Server** extension in VS Code for real-time preview reloading.*
+View the website from this URL: 
 
 ---
 
